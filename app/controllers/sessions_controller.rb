@@ -1,7 +1,7 @@
 
 class SessionsController < AppController
     get '/login' do
-        # the line of code below render the view page in app/views/sessions/login.erb
+    
         erb :'sessions/login'
       end
 
@@ -13,7 +13,7 @@ class SessionsController < AppController
 
       get '/logout' do
         logout!
-        # session.clear
+      
         redirect './login'
 
       end

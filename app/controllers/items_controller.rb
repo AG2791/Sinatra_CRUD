@@ -5,16 +5,11 @@ class ItemsController < AppController
            @items = current_user.items.all
         end
 
-
-
-
-         # only visible to user logged in. 
         get '/items' do
                 if !logged_in?
-                        # if session[:email].empty?
-                   redirect '/login'   # redirect if no email input
+                   redirect '/login'  
                 else
-                 all_items #to pull the list of items 
+                 all_items 
                    erb :'items/items'        
                 end
               
@@ -22,11 +17,9 @@ class ItemsController < AppController
              
 
 
-         get '/items/new' do
-        # check if email is in input form . 
+         get '/items/new' do 
         if !logged_in?
-        # if session[:email].empty?
-                redirect '/login'   # redirect if no email input
+                redirect '/login'   
         else
         erb :'items/new'
         end 
@@ -48,14 +41,12 @@ class ItemsController < AppController
                 @item.user_id = current_user.id
                 @item.save
                 if @item.save
-                  ##############
                   #send to content folder w/ title as name 
                   File.open("./content/#{@file}", 'wb') do |file|
                  file.write(file.read)
                 #   end
                  erb :'items/show'
                   end
-                 #############      
                  erb :'items/items'  
                 else
                 redirect '/items/error'
