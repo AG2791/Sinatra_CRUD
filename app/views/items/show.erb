@@ -1,5 +1,31 @@
+<!DOCTYPE! html>
 
-<p> An item</p>
+<head>
 
-<%=@item.title%>
+</head>
 
+<body>
+    <%# <div class="card card-signin my-5"> %>
+
+        <div class="card-body">
+            <div class="card text-center">
+                <div class="card-header">
+                    <%=@item.title%>
+                </div>
+                <div class="card-body">
+                    <%# <h5 class="card-title">Special title treatment</h5> %>
+                        <p class="card-text">
+                            <%=@item.file%>
+                        </p>
+                        <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+                </div>
+                <div class="card-footer text-muted">
+                    <%=@item.content%>
+                </div>
+                <button type="button" class="btn btn-link"><a href="/items"> Home </a> </button>
+            </div>
+        </div>
+
+</body>
+
+</html>

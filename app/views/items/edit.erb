@@ -1,10 +1,41 @@
 
+<!DOCTYPE! html>
 
-<h1> Item title  </h1> 
+<head>
 
-<h2>Render item here </h2>
+</head>
 
-<h2>Rename</h2>   <h2>Delete</h2>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-6">
+                <div class="card card-edit my-5">
+                    <li class="list-group-item">
+                        <form action="/items/<%= @item.id%>" method="post">
+                            <input id="hidden" type="hidden" name="_method" value="patch">
+                    </li>
+                    <li class="list-group-item">
+                        <input type="text" name="title" value="<%= @item.title %>">
+                    </li>
+                    <li class="list-group-item">
+                        <input class="form-control input-lg" type="text" name="content" value="<%= @item.content %>">
+                    </li>
+                    <li class="list-group-item">
+                        <input type="submit" value="Update">
+                        </form>
+                    </li>
+                    <li class="list-group-item">
+                        <form action="/items/<%= @item.id %>/delete" method="post">
+                            <input id="hidden" type="hidden" name="_method" value="delete">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </li>
+                </div>
+            </div>
 
+        </div>
+    </div>
 
+</body>
 
+</html>

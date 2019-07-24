@@ -1,58 +1,61 @@
 
+ <!DOCTYPE! html>
 
-<!DOCTYPE! html>
 <head>
-<%# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel='stylesheet' type='text/css' href='/stylesheet.css' /> %>
+
 </head>
 
 <body>
- <%# <nav class="navbar navbar-light bg-light" id='navbar'>
-      <span class="navbar-brand mb-0 h1"><h1>Content Capsule</h1></span> 
-</nav> %>
 
-<div class="container">
-   <%# <div class="row"> %>
+    <div class="container">
+        <div class="row">
 
-    <%# <div class="col">
-      upload content 
-     </div>
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <%# <div class="card card-signin my-5"> %>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Add Item</h5>
+                        <form action="/items" method="POST" enctype="multipart/form-data">
 
-     <div class="col-md-auto">
-      Display
-     </div> %>
+                            <div class="form-label-group">
+                                <label for="title">Title</label>
+                                <input class="form-control input-sm" type="text" name="title" id="title" class="form-control" placeholder=" Item Name" required autofocus/>
+                            </div>
 
-
-    <div class="col col-lg-4">
-         <h1> Your Items </h1>
-         <button type="button" class="btn btn-link"><a href="/items/new"> Add Item</a> </button>
-         <button type="button" class="btn btn-link"><a href="/items/new"> </a> </button>
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="btn-group">
-                            <a class="btn btn-default selector" title="select all"><i class="glyphicon glyphicon-unchecked"></i></a>
-                        </div>
+                            <div class="form-label-group">
+                                <label for="content">Description</label>
+                                <input class="form-control input-lg" type="text" name="content" id="content" placeholder="Describe Item" />
+                            </div>
+                            <div class="form-label-group">
+                                <label for="file"> Add File</label>
+                                <input type="file" name="file" id="file" class="form-control" required />
+                            </div>
+                            <button class="btn btn-primary" type="submit" id="add_item_button">ADD</button>
+                        </form>
                     </div>
-                 </div>
-                  <ul class="list-group">
-                      <li class="list-group-item"> Something 1 
-                      <button type="button" class="btn btn-link"><a href="/items/edit"> Edit </a>  </button>
-                      <button type="button" class="btn btn-link"><a href="/items/delete"> Delete</a> </button>
-                      </li>
-                      <li class="list-group-item"> Something 2 
-                      <button type="button" class="btn btn-link"><a href="/items/edit"> Edit </a>  </button>
-                      <button type="button" class="btn btn-link"><a href="/items/delete"> Delete</a> </button>
-                      </li>
-                  </ul>
-               </div>
-      </div>
-</div>
+                <%# </div> %>
+            </div>
+
+            <div class="col col-lg-6">
+                <h1> Your Items </h1>
+                <div class="row">
+                    <div class="col-md-12">
+                    </div>
+                </div>
+                <ul class="list-group">
+                    <%all_items.each do |item|%>
+                        <li class="list-group-item">
+                            <a href="/items/<%=item.id%>">
+                                <%=item.title%>
+                            </a>
+                            <button type="button" class="btn btn-link" ><a href="/items/<%=item.id%>/edit"> Edit </a> </button>
+                        </li>
+                        <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 </body>
 
- </html> 
- 
- 
- 
- 
+</html>
  

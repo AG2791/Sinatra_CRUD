@@ -6,9 +6,7 @@ class SessionsController < AppController
       end
 
       post '/sessions' do
-        #take email input and redirect to items page. start of session
-        #login a user with their email 
-      # session[:email] = params[:email]
+       
       login(params[:email], params[:password])
       redirect './items'
       end

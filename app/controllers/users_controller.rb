@@ -16,5 +16,4 @@ class UsersController < AppController
     end
 
 
-
 end
